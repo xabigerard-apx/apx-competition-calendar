@@ -14,7 +14,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select: none; /* Évite la sélection de texte quand on glisse sur les jours */
+  user-select: none; /* Prevents text selection while dragging across days */
 }
 
 body {
@@ -83,7 +83,7 @@ body {
   font-weight: 600;
 }
 
-/* --- LAYOUT PRINCIPAL --- */
+/* --- MAIN LAYOUT --- */
 .container {
   max-width: 1440px;
   margin: 1.5rem auto;
@@ -93,7 +93,7 @@ body {
   gap: 1.5rem;
 }
 
-/* --- GRILLE 12 MOIS --- */
+/* --- 12-MONTH GRID --- */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -172,7 +172,7 @@ body {
   padding-bottom: 0.35rem;
 }
 
-/* --- CELLULE JOUR --- */
+/* --- DAY CELL --- */
 .day-cell {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -197,7 +197,7 @@ body {
   transform: scale(1.06);
 }
 
-/* Aujourd'hui */
+/* Today highlight */
 .day-cell.is-today {
   outline: 2px solid var(--today-ring);
   outline-offset: -2px;
@@ -215,20 +215,20 @@ body {
   background-color: var(--today-ring);
 }
 
-/* --- SUPERPOSITION VISUELLE DES ÉVÉNEMENTS --- */
-/* 1. Compétition : fond coloré appliqué en inline style via JS */
+/* --- VISUAL OVERLAYS FOR EVENTS --- */
+/* 1. Competition: solid background color applied via JS inline style */
 .day-cell.has-comp {
   color: #ffffff;
   font-weight: 800;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
 }
 
-/* 2. Qualifier : bordure colorée (peut se superposer au fond d'une compé) */
+/* 2. Qualifier: colored inner border (can overlap a competition fill) */
 .day-cell.has-qualif {
   box-shadow: inset 0 0 0 2.5px var(--qualif-color);
 }
 
-/* 3. Deadline : petit point en bas de la case */
+/* 3. Deadline: small indicator dot at the bottom of the cell */
 .day-dot {
   position: absolute;
   bottom: 3px;
@@ -240,7 +240,7 @@ body {
   border: 1px solid #000;
 }
 
-/* --- PANNEAU LÉGENDE & PINCEAU --- */
+/* --- LEGEND & BRUSH PANEL --- */
 .legend-panel {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -335,7 +335,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* --- ITEMS DE LÉGENDE --- */
+/* --- LEGEND ITEMS --- */
 .legend-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
