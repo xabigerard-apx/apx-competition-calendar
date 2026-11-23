@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0a" />
-  <title>APX — Calendrier Compétitions</title>
+  <title>APX — Season Planner</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -21,43 +21,43 @@
   </header>
 
   <main class="container">
-    <!-- Grille 12 mois (mois précédent + 11 prochains mois) -->
-    <section id="calendar-grid" class="calendar-grid" aria-label="Calendrier annuel glissant"></section>
+    <!-- 12-month rolling grid (previous month + next 11 months) -->
+    <section id="calendar-grid" class="calendar-grid" aria-label="Rolling Annual Calendar"></section>
 
-    <!-- Légende interactive & Outil Pinceau (Option A) -->
+    <!-- Interactive Legend & Brush Tool (Option A) -->
     <section class="legend-panel">
       <div class="legend-header">
-        <h2>COMPÉTITIONS & QUALIFICATIONS</h2>
+        <h2>COMPETITIONS & QUALIFIERS</h2>
         <div class="legend-actions">
-          <button id="btn-export" class="btn btn-secondary" title="Exporter en JSON">Export</button>
-          <label class="btn btn-secondary" title="Importer un JSON">
+          <button id="btn-export" class="btn btn-secondary" title="Export as JSON">Export</button>
+          <label class="btn btn-secondary" title="Import JSON">
             Import
             <input type="file" id="input-import" accept=".json" hidden />
           </label>
         </div>
       </div>
 
-      <!-- Formulaire ajout rapide -->
+      <!-- Quick add form -->
       <form id="event-form" class="event-form">
-        <input type="text" id="event-name" placeholder="Nom (ex: Xenon Miami, MFC7...)" required />
-        <select id="event-type" aria-label="Type d'événement">
-          <option value="comp">Compétition (Fond plein)</option>
-          <option value="qualif">Qualifier (Contour)</option>
-          <option value="deadline">Deadline / Note (Point)</option>
+        <input type="text" id="event-name" placeholder="Name (e.g., Xenon Miami, MFC7...)" required />
+        <select id="event-type" aria-label="Event Type">
+          <option value="comp">Competition (Solid Fill)</option>
+          <option value="qualif">Qualifier (Outline)</option>
+          <option value="deadline">Deadline / Note (Dot)</option>
         </select>
-        <input type="color" id="event-color" value="#613795" title="Couleur" />
-        <button type="submit" class="btn btn-primary">+ Ajouter</button>
+        <input type="color" id="event-color" value="#613795" title="Color" />
+        <button type="submit" class="btn btn-primary">+ Add</button>
       </form>
 
       <p class="hint">
-        Clique sur un événement ci-dessous pour activer le pinceau, puis clique ou glisse sur les jours du calendrier. Re-clique sur un jour marqué pour effacer.
+        Click an event below to activate the brush, then click or drag across calendar days. Click a marked day again to clear it.
       </p>
 
-      <!-- Liste des événements créés + leurs plages de dates -->
+      <!-- List of created events + date ranges -->
       <div id="legend-list" class="legend-list"></div>
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="calendar.js"></script>
 </body>
 </html>
