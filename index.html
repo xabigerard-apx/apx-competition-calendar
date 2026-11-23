@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>APX — Calendrier Compétitions</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="badge">APX</span>
+      <h1>SEASON PLANNER</h1>
+    </div>
+    <div class="header-meta">
+      <span id="range-label" class="range-label"></span>
+      <span id="today-label" class="today-label"></span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Grille 12 mois (mois précédent + 11 prochains mois) -->
+    <section id="calendar-grid" class="calendar-grid" aria-label="Calendrier annuel glissant"></section>
+
+    <!-- Légende interactive & Outil Pinceau (Option A) -->
+    <section class="legend-panel">
+      <div class="legend-header">
+        <h2>COMPÉTITIONS & QUALIFICATIONS</h2>
+        <div class="legend-actions">
+          <button id="btn-export" class="btn btn-secondary" title="Exporter en JSON">Export</button>
+          <label class="btn btn-secondary" title="Importer un JSON">
+            Import
+            <input type="file" id="input-import" accept=".json" hidden />
+          </label>
+        </div>
+      </div>
+
+      <!-- Formulaire ajout rapide -->
+      <form id="event-form" class="event-form">
+        <input type="text" id="event-name" placeholder="Nom (ex: Xenon Miami, MFC7...)" required />
+        <select id="event-type" aria-label="Type d'événement">
+          <option value="comp">Compétition (Fond plein)</option>
+          <option value="qualif">Qualifier (Contour)</option>
+          <option value="deadline">Deadline / Note (Point)</option>
+        </select>
+        <input type="color" id="event-color" value="#613795" title="Couleur" />
+        <button type="submit" class="btn btn-primary">+ Ajouter</button>
+      </form>
+
+      <p class="hint">
+        Clique sur un événement ci-dessous pour activer le pinceau, puis clique ou glisse sur les jours du calendrier. Re-clique sur un jour marqué pour effacer.
+      </p>
+
+      <!-- Liste des événements créés + leurs plages de dates -->
+      <div id="legend-list" class="legend-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
